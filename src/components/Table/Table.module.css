@@ -1,0 +1,49 @@
+.container {
+  width: 100%;
+  overflow-x: auto;
+  font-size: 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.thead {
+  border-bottom: 1px solid #ddd;
+}
+
+.tr:nth-child(even) {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.cell {
+  text-align: left;
+  padding: 1em;
+  font-size: 1em;
+}
+
+.singleLineCell {
+  display: flex;
+  padding: 0;
+  gap: 0.5em;
+}
+
+.doubleLineCell {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.doubleLineCell > :last-child {
+  font-size: 0.8em;
+  color: gray;
+}
+
+@media (max-width: 600px) {
+  .container {
+    font-size: 0.8rem;
+  }
+}

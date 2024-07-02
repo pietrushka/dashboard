@@ -1,0 +1,100 @@
+[
+  {
+    "id": "id1",
+    "name": "John Doe1",
+    "email": "john1@example.com",
+    "type": "aiscan2",
+    "riskScore": "LOW",
+    "status": "Approved",
+    "createdAt": "2021-04-15T08:37:42.123Z"
+  },
+  {
+    "id": "id2",
+    "name": "John Doe2",
+    "email": "john1@example.com",
+    "type": "aiscan2",
+    "status": "Customer processing",
+    "createdAt": "2021-04-15T08:37:42.123Z"
+  },
+  {
+    "id": "id3",
+    "name": "John Doe3",
+    "email": "john1@example.com",
+    "type": "aiscan2",
+    "riskScore": "LOW",
+    "status": "Approved",
+    "createdAt": "2021-04-15T08:37:42.123Z"
+  },
+  {
+    "id": "id4",
+    "name": "John Doe4",
+    "email": "john1@example.com",
+    "type": "aiscan2",
+    "riskScore": "LOW",
+    "status": "Approved",
+    "createdAt": "2021-04-15T08:37:42.123Z"
+  },
+  {
+    "id": "id5",
+    "name": "John Doe5",
+    "email": "john1@example.com",
+    "type": "aiscan2",
+    "riskScore": "LOW",
+    "status": "Approved",
+    "createdAt": "2021-04-15T08:37:42.123Z"
+  },
+  {
+    "id": "id6",
+    "name": "John Doe6",
+    "email": "john1@example.com",
+    "type": "aiscan2",
+    "riskScore": "HIGH",
+    "status": "Approved",
+    "createdAt": "2021-04-15T08:37:42.123Z"
+  },
+  {
+    "id": "id7",
+    "name": "John Doe7",
+    "email": "john1@example.com",
+    "type": "aiscan2",
+    "riskScore": "LOW",
+    "status": "Approved",
+    "createdAt": "2021-04-15T08:37:42.123Z"
+  },
+  {
+    "id": "id8",
+    "name": "John Doe8",
+    "email": "john1@example.com",
+    "type": "aiscan2",
+    "riskScore": "",
+    "status": "Approved",
+    "createdAt": "2021-04-15T08:37:42.123Z"
+  },
+  {
+    "id": "id9",
+    "name": "John Doe9",
+    "email": "john1@example.com",
+    "type": "aiscan2",
+    "riskScore": "LOW",
+    "status": "User Accepted KYC Invitation",
+    "createdAt": "2021-04-15T08:37:42.123Z"
+  },
+  {
+    "id": "id10",
+    "name": "John Doe10",
+    "email": "john1@example.com",
+    "type": "aiscan2",
+    "riskScore": "LOW",
+    "status": "Approved",
+    "createdAt": "2021-04-15T08:37:42.123Z"
+  },
+  {
+    "id": "id11",
+    "name": "John Doe11",
+    "email": "john1@example.com",
+    "type": "aiscan2",
+    "riskScore": "MEDIUM",
+    "status": "Approved",
+    "createdAt": "2021-04-15T08:37:42.123Z"
+  }
+]

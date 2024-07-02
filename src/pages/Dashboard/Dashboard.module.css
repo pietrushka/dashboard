@@ -1,0 +1,28 @@
+.rowButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.rowButton:hover {
+  background-color: gainsboro;
+  border-radius: 5px;
+}
+
+.cellIcon {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.riskScoreLow {
+  color: green;
+}
+
+.riskScoreMedium {
+  color: orange;
+}
+
+.riskScoreHigh {
+  color: red;
+}

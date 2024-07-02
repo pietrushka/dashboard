@@ -1,0 +1,11 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.page {
+  box-sizing: border-box;
+  min-height: 100vh;
+}
