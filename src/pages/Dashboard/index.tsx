@@ -11,6 +11,7 @@ import {
 import styles from "./Dashboard.module.css";
 import fakeData from "../../data.json";
 import DonoughnutChart from "../../components/DonoughnutChart";
+import { COLORS } from "../../constants";
 
 type AppStatus =
   | "Approved"
@@ -55,11 +56,11 @@ function processChartData(data: Array<Application>) {
       return acc;
     },
     [
-      { label: "Approved", value: 0, color: "#77DD77" },
-      { label: "Rejected", value: 0, color: "#FFB347" },
-      { label: "Cancelled", value: 0, color: "#FF6961" },
-      { label: "Ready For Review", value: 0, color: "#FDFD96" },
-      { label: "In progress", value: 0, color: "#AEC6CF" },
+      { label: "Approved", value: 0, color: COLORS.pasteleGreen },
+      { label: "Rejected", value: 0, color: COLORS.pastelOrange },
+      { label: "Cancelled", value: 0, color: COLORS.pastelRed },
+      { label: "Ready For Review", value: 0, color: COLORS.pastelYellow },
+      { label: "In progress", value: 0, color: COLORS.pastelBlue },
     ]
   );
 }
@@ -89,11 +90,11 @@ export default function Dashboard() {
   return (
     <div className={styles.pageContainer}>
       <h1 className={styles.pageTitle}>Dashboard</h1>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        <>
-          <div className={styles.section}>
+      <div className={styles.section}>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <>
             <h1 className={styles.sectionTitle}>KYC Applications Reports</h1>
             <div className={styles.chartContainer}>
               <DonoughnutChart data={processChartData(data)} />
@@ -129,9 +130,9 @@ export default function Dashboard() {
                 </Row>
               ))}
             </Table>
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 }

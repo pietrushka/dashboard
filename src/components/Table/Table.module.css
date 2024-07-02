@@ -8,6 +8,7 @@
   width: 100%;
   border-collapse: collapse;
   border: 1px solid #ddd;
+  background: white;
 }
 
 .thead {
@@ -40,10 +41,4 @@
 .doubleLineCell > :last-child {
   font-size: 0.8em;
   color: gray;
-}
-
-@media (max-width: 600px) {
-  .container {
-    font-size: 0.8rem;
-  }
 }

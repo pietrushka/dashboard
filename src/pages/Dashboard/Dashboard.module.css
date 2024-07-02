@@ -1,3 +1,33 @@
+.pageContainer {
+  background: #f2f2f2;
+  padding: 1em;
+  min-height: 100vh;
+}
+
+.pageTitle {
+  font-weight: 500;
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.section {
+  padding: 2em 1em;
+  background-color: #fafafa;
+  width: 100%;
+  margin-top: 2em;
+  border-radius: 1em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 6em;
+}
+
+.sectionTitle {
+  font-weight: 500;
+  font-size: 2em;
+  margin: 0;
+}
+
 .rowButton {
   background-color: transparent;
   border: none;
