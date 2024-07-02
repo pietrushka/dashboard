@@ -10,21 +10,63 @@ import {
 } from "../../components/Table";
 import styles from "./Dashboard.module.css";
 import fakeData from "../../data.json";
+import DonoughnutChart from "../../components/DonoughnutChart";
 
-type Item = {
+type AppStatus =
+  | "Approved"
+  | "Rejected"
+  | "Cancelled"
+  | "Ready For Review"
+  | "Customer processing";
+
+type Application = {
   id: string;
   name: string;
   email: string;
   type: string;
   riskScore?: string;
-  status: string;
+  status: AppStatus;
   date: string;
   time: string;
 };
 
+function processChartData(data: Array<Application>) {
+  return data.reduce(
+    (acc, item) => {
+      switch (item.status) {
+        case "Approved":
+          acc[0].value += 1;
+          break;
+        case "Rejected":
+          acc[1].value += 1;
+          break;
+        case "Cancelled":
+          acc[2].value += 1;
+          break;
+        case "Ready For Review":
+          acc[3].value += 1;
+          break;
+        case "Customer processing":
+          acc[4].value += 1;
+          break;
+        default:
+          break;
+      }
+      return acc;
+    },
+    [
+      { label: "Approved", value: 0, color: "#77DD77" },
+      { label: "Rejected", value: 0, color: "#FFB347" },
+      { label: "Cancelled", value: 0, color: "#FF6961" },
+      { label: "Ready For Review", value: 0, color: "#FDFD96" },
+      { label: "In progress", value: 0, color: "#AEC6CF" },
+    ]
+  );
+}
+
 export default function Dashboard() {
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<Array<Item>>([]);
+  const [data, setData] = useState<Array<Application>>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -37,7 +79,7 @@ export default function Dashboard() {
           // TODO might need timezone handling
           date: format(new Date(row.createdAt), "MMMM dd, yyyy"),
           time: format(new Date(row.createdAt), "HH:mm:ss"),
-        }))
+        })) as Array<Application>
       );
       setIsLoading(false);
     }
@@ -45,42 +87,50 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div>
-      <h1>Dashboard</h1>
+    <div className={styles.pageContainer}>
+      <h1 className={styles.pageTitle}>Dashboard</h1>
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <Table
-          columns={["Created", "Name", "Type", "Risk Score", "Status", ""]}
-        >
-          {data.map((row) => (
-            <Row key={row.id}>
-              <DoubleLineCell>
-                <span>{row.date}</span>
-                <span>{row.date}</span>
-              </DoubleLineCell>
-              <DoubleLineCell>
-                <span>{row.name}</span>
-                <span>{row.email}</span>
-              </DoubleLineCell>
-              <SingleLineCell>{row.type}</SingleLineCell>
-              <SingleLineCell>
-                <RiskScore riskScore={row.riskScore} />
-              </SingleLineCell>
-              <SingleLineCell>
-                <Status status={row.status} />
-              </SingleLineCell>
-              <SingleLineCell>
-                <button
-                  className={styles.rowButton}
-                  onClick={() => window.alert(`${row.name}, clicked`)}
-                >
-                  <SlOptionsVertical />
-                </button>
-              </SingleLineCell>
-            </Row>
-          ))}
-        </Table>
+        <>
+          <div className={styles.section}>
+            <h1 className={styles.sectionTitle}>KYC Applications Reports</h1>
+            <div className={styles.chartContainer}>
+              <DonoughnutChart data={processChartData(data)} />
+            </div>
+            <Table
+              columns={["Created", "Name", "Type", "Risk Score", "Status", ""]}
+            >
+              {data.map((row) => (
+                <Row key={row.id}>
+                  <DoubleLineCell>
+                    <span>{row.date}</span>
+                    <span>{row.date}</span>
+                  </DoubleLineCell>
+                  <DoubleLineCell>
+                    <span>{row.name}</span>
+                    <span>{row.email}</span>
+                  </DoubleLineCell>
+                  <SingleLineCell>{row.type}</SingleLineCell>
+                  <SingleLineCell>
+                    <RiskScore riskScore={row.riskScore} />
+                  </SingleLineCell>
+                  <SingleLineCell>
+                    <Status status={row.status} />
+                  </SingleLineCell>
+                  <SingleLineCell>
+                    <button
+                      className={styles.rowButton}
+                      onClick={() => window.alert(`${row.name}, clicked`)}
+                    >
+                      <SlOptionsVertical />
+                    </button>
+                  </SingleLineCell>
+                </Row>
+              ))}
+            </Table>
+          </div>
+        </>
       )}
     </div>
   );

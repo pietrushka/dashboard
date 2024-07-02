@@ -31,7 +31,7 @@
     "email": "john1@example.com",
     "type": "aiscan2",
     "riskScore": "LOW",
-    "status": "Approved",
+    "status": "Cancelled",
     "createdAt": "2021-04-15T08:37:42.123Z"
   },
   {
@@ -40,7 +40,7 @@
     "email": "john1@example.com",
     "type": "aiscan2",
     "riskScore": "LOW",
-    "status": "Approved",
+    "status": "Rejected",
     "createdAt": "2021-04-15T08:37:42.123Z"
   },
   {
@@ -58,7 +58,7 @@
     "email": "john1@example.com",
     "type": "aiscan2",
     "riskScore": "LOW",
-    "status": "Approved",
+    "status": "Ready For Review",
     "createdAt": "2021-04-15T08:37:42.123Z"
   },
   {
